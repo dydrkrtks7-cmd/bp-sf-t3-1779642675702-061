@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>블로그 | PBN 빌더 & 서버 웜업 전략</title>
+<meta name="description" content="낡은 SEO 는 잊으세요. 마포 기반 PBN 빌더가 제공하는 순수 트래픽 서버 웜업 전략. 링크 파밍이 아닌 브랜드 자산을 구축합니다. 지금 바로 문의하세요.">
+<meta name="keywords" content="PBN 빌더, 서버 웜업, 마포 SEO, 파워블로그, 티스토리 PBN, 도메인 산성화, 시드 에지, 모카페, 에지 시드">
+<link rel="canonical" href="https://sf-t3-1779642675702-061.pages.dev/">
+<meta name="bpaas-design-system" content="editorial-apple">
+<meta name="bpaas-design-theme" content="kr-mono-chrome">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sf-t3-1779642675702-061.pages.dev/">
+<meta property="og:title" content="블로그 | PBN 빌더 & 서버 웜업 전략">
+<meta property="og:description" content="낡은 SEO 는 잊으세요. 마포 기반 PBN 빌더가 제공하는 순수 트래픽 서버 웜업 전략.">
+<style>
+/* RESET & BASE */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --text-secondary: #666666;
+    --border-color: #e5e5e5;
+    --accent-color: #000000;
+    --spacing-unit: 24px;
+    --font-main: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { 
+    background-color: var(--bg-color); 
+    color: var(--text-color); 
+    font-family: var(--font-main); 
+    line-height: 1.6; 
+    -webkit-font-smoothing: antialiased;
+}
+a { text-decoration: none; color: inherit; transition: opacity 0.2s; }
+a:hover { opacity: 0.6; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+/* TYPOGRAPHY */
+h1, h2, h3 { font-weight: 700; letter-spacing: -0.03em; line-height: 1.2; }
+h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: var(--spacing-unit); }
+h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: calc(var(--spacing-unit) / 1.5); }
+h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+p { font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1.5rem; }
+.eyebrow { 
+    font-size: 0.85rem; 
+    font-weight: 600; 
+    text-transform: uppercase; 
+    letter-spacing: 0.05em; 
+    color: var(--text-secondary); 
+    margin-bottom: 1rem;
+    display: block;
+}
+
+/* LAYOUT UTILS */
+.container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 var(--spacing-unit); 
+}
+.section { padding: calc(var(--spacing-unit) * 4) 0; border-bottom: 1px solid var(--border-color); }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: calc(var(--spacing-unit) * 2); }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: calc(var(--spacing-unit) * 2); }
+.flex-between { display: flex; justify-content: space-between; align-items: center; }
+
+/* COMPONENTS */
+/* Navigation */
+nav { 
+    padding: var(--spacing-unit) 0; 
+    border-bottom: 1px solid var(--border-color); 
+    position: sticky; 
+    top: 0; 
+    background: var(--bg-color); 
+    z-index: 100;
+}
+.nav-content { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-weight: 800; font-size: 1.2rem; letter-spacing: -0.05em; }
+.nav-links { display: flex; gap: 2rem; }
+.nav-links a { font-size: 0.9rem; font-weight: 500; }
+.hamburger { display: none; font-size: 1.5rem; cursor: pointer; }
+
+/* Card Styles */
+.card { 
+    padding: var(--spacing-unit); 
+    border: 1px solid var(--border-color); 
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    background: #fff;
+}
+.card:hover { 
+    border-color: var(--text-color); 
+    transform: translateY(-5px);
+}
+.card-meta { font-size: 0.8rem; margin-bottom: 0.5rem; display: flex; justify-content: space-between; }
+.card-tag { background: #000; color: #fff; padding: 2px 6px; border-radius: 2px; }
+.card-date { color: var(--text-secondary); }
+
+/* Buttons */
+.btn { 
+    display: inline-block; 
+    padding: 1rem 2rem; 
+    background: var(--accent-color); 
+    color: #fff; 
+    font-weight: 600; 
+    border: 1px solid var(--accent-color);
+    transition: all 0.3s;
+}
+.btn:hover { background: transparent; color: var(--accent-color); }
+
+/* Form */
+.form-group { margin-bottom: 1.5rem; }
+.form-label { display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem; }
+.form-input, .form-textarea { 
+    width: 100%; 
+    padding: 1rem; 
+    border: 1px solid var(--border-color); 
+    font-family: inherit; 
+    font-size: 1rem;
+    background: #f9f9f9;
+}
+.form-input:focus, .form-textarea:focus { outline: 1px solid #000; background: #fff; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .hamburger { display: block; }
+    h1 { font-size: 2.5rem; }
+    .section { padding: calc(var(--spacing-unit) * 2) 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+    <div class="container nav-content">
+        <a href="#" class="logo">PBN BUILDER</a>
+        <div class="nav-links">
+            <a href="#">서비스</a>
+            <a href="#">워크플로우</a>
+            <a href="#">블로그</a>
+            <a href="#">문의</a>
+        </div>
+        <div class="hamburger">☰</div>
+    </div>
+</nav>
+
+<!-- Header -->
+<header class="section">
+    <div class="container">
+        <span class="eyebrow">INSIGHT & ANALYSIS</span>
+        <h1>검색 엔진은<br>당신의 주의를 요구하지 않습니다.<br><strong>신뢰를 요구합니다.</strong></h1>
+        <p style="max-width: 600px; margin-top: 2rem;">
+            대부분의 마케터는 빙산의 일각만 봅니다. 그들은 클릭 수에 집착하지만, 우리는 그 뒤에 있는 '데이터의 흐름'과 '서버의 평판'을 봅니다. 마포에서 구축된 이 네트워크는 단순한 링크 농장이 아닙니다. 이것은 검색 알고리즘의 허점을 파고드는 정교한 자산입니다.
+        </p>
+    </div>
+</header>
+
+<!-- Main Content -->
+<main>
+    <div class="container section">
+        <div class="flex-between" style="margin-bottom: calc(var(--spacing-unit) * 2);">
+            <h2>LATEST POSTS</h2>
+            <a href="#" style="border-bottom: 1px solid #000; padding-bottom: 2px;">전체 보기</a>
+        </div>
+
+        <div class="grid-3">
+            <!-- Article 1 -->
+            <article class="card">
+                <div class="card-meta">
+                    <span class="card-tag">STRATEGY</span>
+                    <span class="card-date">2023. 10. 24</span>
+                </div>
+                <h3>도메인 산성화 (Acidification): 당신의 백링크가 무독이 되는 순간</h3>
+                <p style="font-size: 0.95rem; margin-bottom: 1.5rem;">
+                    왜 당신의 티스토리 PBN 은 한 달 만에 구글 서치 콘솔에서 사라지는가? 단순한 페널티가 아닙니다. 도메인의 pH 농도가 무너졌을 때 발생합니다. 화학적 반응과 같은 SEO 의 진실을 폭로합니다.
+                </p>
+                <a href="#" style="font-weight: 600; font-size: 0.9rem;">READ MORE →</a>
+            </article>
+
+            <!-- Article 2 -->
+            <article class="card">
+                <div class="card-meta">
+                    <span class="card-tag">INFRASTRUCTURE</span>
+                    <span class="card-date">2023. 10. 18</span>
+                </div>
+                <h3>시드 에지 (Seed Edge) vs 모카페 (Momcafe): 트래픽의 질적 차이</h3>
+                <p style="font-size: 0.95rem; margin-bottom: 1.5rem;">
+                    모두 '실사용 트래픽'이라고 말합니다. 하지만 우리는 압니다. 모카페의 유입 패턴과 시드 에지를 통한 유기적 탐색의 차이는 천지차별입니다. 서버 웜업 단계에서 무엇을 심어야 하는지 결정하십시오.
+                </p>
+                <a href="#" style="font-weight: 600; font-size: 0.9rem;">READ MORE →</a>
+            </article>
+
+            <!-- Article 3 -->
+            <article class="card">
+                <div class="card-meta">
+                    <span class="card-tag">CASE STUDY</span>
+                    <span class="card-date">2023. 10. 12</span>
+                </div>
+                <h3>마포 IP 대역폭을 이용한 C-Class 서브넷 구축의 이점</h3>
+                <p style="font-size: 0.95rem; margin-bottom: 1.5rem;">
+                    같은 호스팅, 다른 IP. 구글은 이것을 한눈에 꿰뚫습니다. 마포 지역의 물리적 인프라를 활용한 독립된 네트워크 구성. 이것이 바로 우리가 'PBN 빌더'라고 불리는 이유입니다.
+                </p>
+                <a href="#" style="font-weight: 600; font-size: 0.9rem;">READ MORE →</a>
+            </article>
+        </div>
+    </div>
+
+    <!-- Deep Dive Section -->
+    <section class="section" style="background-color: #000; color: #fff;">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <span class="eyebrow" style="color: #666;">THE TRUTH</span>
+                    <h2 style="color: #fff;">"링크 파밍은 죽었습니다."</h2>
+                    <p style="color: #ccc;">
+                        2015 년의 SEO 는 죽었습니다. 지금 구글 알고리즘은 콘텐츠의 '맥락'과 '서버의 역사'를 읽습니다. 낡은 기법으로 시간을 낭비하지 마십시오. 우리는 순수 트래픽을 시뮬레이션하여 서버에 신뢰도를 주입합니다.
+                    </p>
+                    <a href="#" class="btn" style="margin-top: 1rem;">전략 보기</a>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: center; border: 1px solid #333; padding: 2rem;">
+                    <div style="text-align: center;">
+                        <h3 style="color: #fff; font-size: 3rem;">98%</h3>
+                        <p style="color: #666; font-size: 0.9rem;">서버 웜업 성공률</p>
+                        <div style="height: 1px; width: 100%; background: #333; margin: 1rem 0;"></div>
+                        <h3 style="color: #fff; font-size: 3rem;">0%</h3>
+                        <p style="color: #666; font-size: 0.9rem;">스팸 지표 발생</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+        <div class="container">
+            <h2>FAQ</h2>
+            <div style="margin-top: 2rem;">
+                <details style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+                    <summary style="font-weight: 600; cursor: pointer; font-size: 1.1rem;">PBN 과 일반 백링크 작업의 차이는 무엇인가요?</summary>
+                    <p style="margin-top: 1rem; padding-left: 1rem; border-left: 2px solid #000;">
+                        일반 백링크는 양을 쌓는 작업입니다. PBN 은 '네트워크'를 소유하는 것입니다. 우리는 당신에게 링크를 빌려주는 것이 아니라, 당신만의 검색 엔진 내부를 만들어 드립니다. 컨트롤의 유무가 차이를 만듭니다.
+                    </p>
+                </details>
+                <details style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+                    <summary style="font-weight: 600; cursor: pointer; font-size: 1.1rem;">서버 웜업 기간은 얼마나 소요되나요?</summary>
+                    <p style="margin-top: 1rem; padding-left: 1rem; border-left: 2px solid #000;">
+                        도메인의 히스토리와 타겟 키워드의 경쟁도에 따라 다릅니다. 보통 2 주에서 4 주 사이의 시드 에지 트래픽 주입 기간을 거칩니다.焦急躁하면 서버가 산성화됩니다. 우리는 기다릴 줄 압니다.
+                    </p>
+                </details>
+                <details style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+                    <summary style="font-weight: 600; cursor: pointer; font-size: 1.1rem;">마포 기반 인프라의 장점은?</summary>
+                    <p style="margin-top: 1rem; padding-left: 1rem; border-left: 2px solid #000;">
+                        국내 검색 엔진 (Naver) 과 글로벌 엔진 (Google) 모두에게 '국내 신뢰도 있는 서버'로 인식되기 위함입니다. 해외 호스팅을 국내 IP 로 우회하는 불안정한 구조와는 차원이 다릅니다.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" style="text-align: center;">
+        <div class="container">
+            <h2 style="margin-bottom: 1rem;">규칙을 따르지 마십시오.<br>규칙을 만드십시오.</h2>
+            <p style="max-width: 500px; margin: 0 auto 2rem auto;">
+                당신의 브랜드가 검색 결과의 변방에 머무르는 것을 용납하지 마십시오. 지금 바로 문의하여 맞춤형 PBN 전략을 수립하세요.
+            </p>
+            <a href="#" class="btn">무료 컨설팅 신청</a>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="section" style="border-bottom: none; font-size: 0.85rem; color: var(--text-secondary);">
+    <div class="container flex-between">
+        <div>
+            <strong style="color: #000; display: block; margin-bottom: 0.5rem;">PBN BUILDER</strong>
+            <p>서울특별시 마포구 월드컵북로 000</p>
+            <p>Copyright © 2023 PBN Builder. All rights reserved.</p>
+        </div>
+        <div style="text-align: right;">
+            <a href="#"
+</body>
+</html>

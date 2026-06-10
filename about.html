@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정보 | 마포 PBN 빌더 & 서버 웜업 전략</title>
+    <meta name="description" content="단순 백링크가 아닌 브랜드 자산을 구축합니다. 마포 기반 PBN 빌더의 서버 웜업 전략과 도메인 산성화 방지 기술에 대한 상세 가이드.">
+    <meta name="keywords" content="PBN 빌더, 서버 웜업, 마포 SEO, 모먼트 SEO, 도메인 산성화, 티스토리 PBN, 파워블로그 구축">
+    <link rel="canonical" href="https://sf-t3-1779642675702-061.pages.dev/info">
+    <meta name="bpaas-design-system" content="editorial-apple">
+    <meta name="bpaas-design-theme" content="kr-mono-chrome">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sf-t3-1779642675702-061.pages.dev/info">
+    <meta property="og:title" content="정보 | 마포 PBN 빌더 & 서버 웜업 전략">
+    <meta property="og:description" content="낡은 SEO 는 잊으세요. 순수 트래픽 서버 웜업 전략과 브랜드 자산 구축에 대한 모든 것.">
+    <style>
+        /* RESET & BASE */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #111111;
+            --accent-color: #000000;
+            --gray-light: #f4f4f4;
+            --gray-dark: #888888;
+            --font-main: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            --spacing-unit: 1.5rem;
+            --container-width: 1200px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { text-decoration: none; color: inherit; transition: opacity 0.3s; }
+        a:hover { opacity: 0.6; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* TYPOGRAPHY */
+        h1, h2, h3 { font-weight: 700; line-height: 1.2; letter-spacing: -0.03em; }
+        h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 1.5rem; }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+        h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        p { font-size: 1.125rem; color: #333; margin-bottom: 1.5rem; max-width: 700px; }
+        .eyebrow {
+            font-family: monospace;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.1em;
+            color: var(--gray-dark);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        strong { font-weight: 700; color: #000; }
+
+        /* LAYOUT UTILS */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+        .section { padding: clamp(4rem, 8vw, 8rem) 0; border-bottom: 1px solid var(--gray-light); }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .flex-between {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* COMPONENTS */
+        .btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: #fff;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            border-radius: 4px;
+            border: 1px solid var(--accent-color);
+        }
+        .btn:hover { background: transparent; color: var(--accent-color); opacity: 1; }
+        
+        .card {
+            background: var(--gray-light);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); }
+        
+        .faq-item {
+            border-bottom: 1px solid var(--gray-light);
+            padding: 2rem 0;
+        }
+        .faq-question { font-weight: 700; font-size: 1.25rem; cursor: pointer; display: flex; justify-content: space-between; }
+        .faq-answer { margin-top: 1rem; display: none; color: #555; }
+        .faq-item.active .faq-answer { display: block; }
+
+        /* NAV */
+        nav {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        .nav-content { max-width: var(--container-width); margin: 0 auto; padding: 0 var(--spacing-unit); }
+        .logo { font-weight: 900; font-size: 1.5rem; letter-spacing: -0.05em; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { font-size: 0.95rem; font-weight: 500; }
+        .hamburger { display: none; cursor: pointer; font-size: 1.5rem; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .grid-2, .grid-3 { grid-template-columns: 1fr; gap: 2rem; }
+            .nav-links { display: none; }
+            .hamburger { display: block; }
+            h1 { font-size: 2.5rem; }
+            .section { padding: 4rem 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 네비게이션 -->
+    <nav>
+        <div class="nav-content flex-between">
+            <a href="/" class="logo">MAPO SEO LAB.</a>
+            <div class="nav-links">
+                <a href="/">홈</a>
+                <a href="/services">서비스</a>
+                <a href="/info" style="text-decoration: underline;">정보</a>
+                <a href="/contact">문의</a>
+            </div>
+            <div class="hamburger">☰</div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- 인트로 섹션 -->
+        <section class="section">
+            <div class="container">
+                <span class="eyebrow">Information / Knowledge Base</span>
+                <h1>SEO 는 더 이상<br>기적이 아닌 '공학'입니다.</h1>
+                <p>
+                    마포의 유행처럼 SEO 트렌드도 빠르게 변합니다.<br>
+                    하지만 본질은 변하지 않습니다. <strong>신뢰할 수 있는 데이터와服务器 (서버) 의 건강함</strong>이 곧 순위입니다.
+                    우리는 낡은 링크 파밍을 거부합니다. 대신, 브랜드를 위한 디지털 부동산을 짓습니다.
+                </p>
+            </div>
+        </section>
+
+        <!-- 핵심 전략 섹션 -->
+        <section class="section">
+            <div class="container">
+                <div class="grid-2">
+                    <div>
+                        <h2>서버 웜업 (Server Warm-up)</h2>
+                        <p>
+                            새로 확보한 도메인이나 서버는 검색 엔진에게 '낯선 존재'입니다.<br>
+                            갑자기 폭포수처럼 트래픽을 쏟아부으면 스팸으로 간주되어 샌드박스에 갇히게 됩니다.
+                        </p>
+                        <p>
+                            <strong>서버 웜업</strong>은 검색 엔진 크롤러가 자연스럽게 사이트를 인식하고 신뢰도를 쌓아가도록 유도하는 과정입니다.
+                            마포 기반의 순수 트래픽 서버를 활용하여, 인간의 행동을 모방한 지수적인 트래픽 증가를 설계합니다.
+                        </p>
+                        <a href="/contact" class="btn">웜업 전략 문의하기</a>
+                    </div>
+                    <div style="background: #f0f0f0; border-radius: 8px; display: flex; align-items: center; justify-content: center; min-height: 300px;">
+                        <!-- 이미지 대신 텍스트 블록으로 대체 (디자인 시스템 유지) -->
+                        <div style="text-align: center; padding: 2rem;">
+                            <h3 style="font-size: 4rem; color: #ddd; margin: 0;">WARM-UP</h3>
+                            <p style="margin: 0; font-size: 0.9rem; color: #999;">Organic Traffic Simulation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PBN 빌더 상세 섹션 -->
+        <section class="section">
+            <div class="container">
+                <span class="eyebrow">Our Methodology</span>
+                <h2>PBN 빌더: 링크가 아닌 자산을 만듭니다.</h2>
+                <div class="grid-3" style="margin-top: 3rem;">
+                    <div class="card">
+                        <h3>01. 도메인 산성화 방지</h3>
+                        <p>
+                            expired domain 을 무작정 사용하지 않습니다.<br>
+                            과거 이력 (Backlink Profile) 을 철저히 분석하여 '독'이 빠진 깨끗한 도메인만 선별합니다.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3>02. IP & C-Class 분리</h3>
+                        <p>
+                            동일한 서버, 동일한 IP 대역에서 생성된 PBN 은 구글 봇에게 쉽게 발각됩니다.<br>
+                    마포 데이터센터를 포함한 다양한 C-Class 대역을 활용하여 풋프린트를 최소화합니다.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3>03. 콘텐츠 오가닉</h3>
+                        <p>
+                            AI 가生成한 기계적인 글은 이제 통하지 않습니다.<br>
+                            실제 유저가 검색할 만한 니치 (Niche) 키워드를 기반으로 한 고품질 에디토리얼 콘텐츠를 배치합니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 지역 시그널 섹션 -->
+        <section class="section" style="background-color: #111; color: #fff;">
+            <div class="container">
+                <div class="grid-2">
+                    <div>
+                        <h2 style="color: #fff;">왜 '마포'인가?</h2>
+                        <p style="color: #ccc;">
+                            서울의 중심, 마포구는 IT 인프라와 콘텐츠 크리에이터의 밀집도가 높은 지역입니다.<br>
+                            우리는 이 지리적 이점을 활용하여 <strong>로컬 SEO 시그널</strong>을 극대화합니다.
+                        </p>
+                        <p style="color: #ccc;">
+                            단순한 백링크 작업을 넘어, 마포 지역의 실제 상권 및 트래픽 패턴을 분석한 데이터 기반의 SEO 를 제공합니다.
+                            이것이 우리가 '마포 PBN 빌더'라 불리는 이유입니다.
+                        </p>
+                    </div>
+                    <div style="display: flex; flex-direction: column; justify-content: center;">
+                        <ul style="font-family: monospace; font-size: 1.1rem; line-height: 2;">
+                            <li>> Mapo-gu Server Cluster Active</li>
+                            <li>> Local Business Signal: Strong</li>
+                            <li>> Content Density: High</li>
+                            <li>> Trust Flow: Increasing...</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ 섹션 -->
+        <section class="section">
+            <div class="container" style="max-width: 800px;">
+                <span class="eyebrow">FAQ</span>
+                <h2>자주 묻는 질문</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        PBN 이 구글 페널티에 걸리지 않나요?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        일반적인 저품질 PBN 은 그렇습니다. 하지만 우리는 '풋프린트'를 남기지 않습니다. IP 분리, Whois 정보 은닉, 그리고 가장 중요한 '자연스러운 트래픽 패턴 (웜업)'을 통해 검색 엔진이 이를 자연 발생적인 링크로 인식하도록 설계합니다.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        서버 웜업 기간은 얼마나 걸리나요?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        도메인의 연령과 기존 지수에 따라 다르지만, 일반적으로 2 주에서 4 주 정도의 웜업 기간을 권장합니다. 급격한 트래픽 증가는 오히려 독이 될 수 있습니다. 인내심이 곧 순위입니다.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        티스토리 PBN 과 워드프레스 PBN 중 무엇이 좋나요?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        목적에 따라 다릅니다. 빠른 색인 (Indexing) 과 국내 검색 엔진 (Naver) 공략에는 티스토리가 유리할 수 있으나, 장기적인 브랜드 자산 구축과 구글 SEO 에는 워드프레스 기반의 독립적인 PBN 이 훨씬 강력합니다. 우리는两者的 장점을 혼합한 하이브리드 전략을 제안합니다.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA 섹션 -->
+        <section class="section" style="text-align: center;">
+            <div class="container">
+                <h2>준비가 되셨나요?</h2>
+                <p style="margin: 1rem auto 2rem;">
+                    낡은 SEO 는 잊으세요.<br>
+                    지금 바로 마포 기반 PBN 빌더와 함께 브랜드 자산을 구축하십시오.
+                </p>
+                <a href="tel:010-0000-0000" class="btn">무료 컨설팅 문의 (010-0000-0000)</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- 푸터 -->
+    <footer style="background: #f9f9f9; padding: 4rem 0; border-top: 1px solid #eee;">
+        <div class="container">
+            <div class="grid-2" style="gap: 2rem; margin-bottom: 2rem;">
+                <div>
+                    <h3 style="margin-bottom: 1rem;">MAPO SEO LAB.</h3>
+                    <p style="font-size: 0.9rem; color: #666; max-width: 100%;">
+                        서울특별시 마포구 양화로 00<br>
+                        대표: 홍길동 | 사업자등록번호: 000-00-00000<br>
+                        호스팅제공자: 가비아
+                    </p>
+                </div>
+                <div style="text-align: right;">
+                    <ul style="font-size: 0.9rem; color: #666; line-height: 2;">
+                        <li><a href="/privacy">개인정보처리방침</a></li>
+                        <li><a href="/terms">이용약관</a></li>
+                        <li><a href="/contact">고객센터</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p style="font-size: 0.8rem; color: #999; text-align: center;">
+                &copy; 202
+</body>
+</html>
